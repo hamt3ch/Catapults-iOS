@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNObjectEventListener {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        chatClient.client?.subscribeToChannels(["my_channel"], withPresence: true)
+        PubNubClient.sharedClient.client?.subscribeToChannels(["my_channel"], withPresence: true)
         
         return true
     }

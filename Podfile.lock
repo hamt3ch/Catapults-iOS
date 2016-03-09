@@ -12,14 +12,17 @@ PODS:
     - PubNub/Core (= 4.3.0)
   - PubNub/Core (4.3.0):
     - CocoaLumberjack (= 2.2.0)
+  - SlackTextViewController (1.9.1)
 
 DEPENDENCIES:
   - PubNub
+  - SlackTextViewController
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   PubNub: a05f2a2c6cc1f637a0c473f236c4671c0b8c09b1
+  SlackTextViewController: 6b0d1030c53937226fc5358f217af2a34fc211cf
 
-PODFILE CHECKSUM: e4a01bc88d01b0ff70c8552704f38bd9a9df89b2
+PODFILE CHECKSUM: 13f4ae2d11ff94ed2824daaa843f6d649ab72b6e
 
 COCOAPODS: 1.0.0.beta.2

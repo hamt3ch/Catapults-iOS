@@ -5,5 +5,6 @@ use_frameworks!
 
 target 'Catapults-iOS' do
   pod "PubNub"
+  pod "SlackTextViewController"
 end
 

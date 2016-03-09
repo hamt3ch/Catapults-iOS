@@ -8,17 +8,31 @@
 
 import PubNub
 
+let publishKey = "pub-c-baa81eb3-c043-4cd8-8b5a-3dc257ded619"
+let subcribeKey = "sub-c-7539a622-e5f2-11e5-aad5-02ee2ddab7fe"
+
+protocol PubNubChatDelegate: class {
+    func messagesRecievedCompletion(messagesRecieved:[String]?) -> Void
+}
+
 class PubNubClient: NSObject, PNObjectEventListener {
     
     // Instance property
+    static let sharedClient = PubNubClient()
     var client: PubNub?
+    
+    weak var chatDelegate: PubNubChatDelegate?
+    
+    
+    //Variables
+    var recievedMessages: AnyObject?
     
     // For demo purposes the initialization is done in the init function so that
     // the PubNub client is instantiated before it is used.
     override init() {
         
         // Instantiate configuration instance.
-        let configuration = PNConfiguration(publishKey: "pub-c-83582cfe-d7a4-4f1d-b727-aa0479dda211", subscribeKey: "sub-c-0dacfca8-e5e7-11e5-aad5-02ee2ddab7fe")
+        let configuration = PNConfiguration(publishKey: publishKey, subscribeKey: subcribeKey)
         // Instantiate PubNub client.
         client = PubNub.clientWithConfiguration(configuration)
         
@@ -120,4 +134,55 @@ class PubNubClient: NSObject, PNObjectEventListener {
             // encrypt messages and on live data feed it received plain text.
         }
     }
+    
+    //MARK: - Public Methods Controller Uses
+    func sendMessage(messageToSend: String) {
+        self.client!.publish(messageToSend, toChannel: "my_channel",
+            compressed: false, withCompletion: { (status) -> Void in
+                
+                if !status.error {
+                    
+                    // Message successfully published to specified channel.
+                }
+                else {
+                    // Handle message publish error. Check 'category' property
+                    // to find out possible reason because of which request did fail.
+                    // Review 'errorData' property (which has PNErrorData data type) of status
+                    // object to get additional information about issue.
+                    //
+                    // Request can be resent using: status.retry()
+                }
+        })
+    }
+    
+    func getMessages(channel:String) -> [String] {
+        var recievedMessages:[String] = [String]()
+        self.client?.historyForChannel(channel, withCompletion: { (result, status) -> Void in
+            
+            if status == nil {
+                // Handle downloaded history using:
+                //   result.data.start - oldest message time stamp in response
+                //   result.data.end - newest message time stamp in response
+                //   result.data.messages - list of messages
+                print(result!.data.messages)
+                recievedMessages = result!.data.messages as! [String]
+                self.chatDelegate?.messagesRecievedCompletion(recievedMessages)
+            
+            }
+                
+            else {
+                
+                // Handle message history download error. Check 'category' property
+                // to find out possible reason because of which request did fail.
+                // Review 'errorData' property (which has PNErrorData data type) of status
+                // object to get additional information about issue.
+                //
+                // Request can be resent using: status.retry()
+            }
+        })
+        print(recievedMessages)
+        return recievedMessages
+   }
+    
+
 }

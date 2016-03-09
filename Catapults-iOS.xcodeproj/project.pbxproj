@@ -14,6 +14,9 @@
 		47ED22D41C9038A70030A4A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47ED22D31C9038A70030A4A9 /* Assets.xcassets */; };
 		47ED22D71C9038A70030A4A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47ED22D51C9038A70030A4A9 /* LaunchScreen.storyboard */; };
 		47ED22DF1C90403B0030A4A9 /* PubNub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED22DE1C90403B0030A4A9 /* PubNub.swift */; };
+		47ED22E11C9050460030A4A9 /* KSTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED22E01C9050460030A4A9 /* KSTextViewController.swift */; };
+		47ED22F01C906AED0030A4A9 /* KSMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED22EE1C906AED0030A4A9 /* KSMessageCell.swift */; };
+		47ED22F11C906AED0030A4A9 /* KSMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47ED22EF1C906AED0030A4A9 /* KSMessageCell.xib */; };
 		97187BF4201DD71510EF6EE1 /* Pods_Catapults_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C30992AF2DBE1D2D70B756 /* Pods_Catapults_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		47ED22D61C9038A70030A4A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47ED22D81C9038A70030A4A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47ED22DE1C90403B0030A4A9 /* PubNub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubNub.swift; sourceTree = "<group>"; };
+		47ED22E01C9050460030A4A9 /* KSTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTextViewController.swift; sourceTree = "<group>"; };
+		47ED22EE1C906AED0030A4A9 /* KSMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSMessageCell.swift; sourceTree = "<group>"; };
+		47ED22EF1C906AED0030A4A9 /* KSMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSMessageCell.xib; sourceTree = "<group>"; };
 		82C30992AF2DBE1D2D70B756 /* Pods_Catapults_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Catapults_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -74,6 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				47ED22DE1C90403B0030A4A9 /* PubNub.swift */,
+				47ED22E01C9050460030A4A9 /* KSTextViewController.swift */,
+				47ED22EE1C906AED0030A4A9 /* KSMessageCell.swift */,
+				47ED22EF1C906AED0030A4A9 /* KSMessageCell.xib */,
 				47ED22C91C9038A70030A4A9 /* AppDelegate.swift */,
 				47ED22CB1C9038A70030A4A9 /* ViewController.swift */,
 				47ED22CD1C9038A70030A4A9 /* Main.storyboard */,
@@ -156,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47ED22D71C9038A70030A4A9 /* LaunchScreen.storyboard in Resources */,
+				47ED22F11C906AED0030A4A9 /* KSMessageCell.xib in Resources */,
 				47ED22D41C9038A70030A4A9 /* Assets.xcassets in Resources */,
 				47ED22CF1C9038A70030A4A9 /* Main.storyboard in Resources */,
 			);
@@ -217,7 +227,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				47ED22CC1C9038A70030A4A9 /* ViewController.swift in Sources */,
+				47ED22E11C9050460030A4A9 /* KSTextViewController.swift in Sources */,
 				47ED22CA1C9038A70030A4A9 /* AppDelegate.swift in Sources */,
+				47ED22F01C906AED0030A4A9 /* KSMessageCell.swift in Sources */,
 				47ED22D21C9038A70030A4A9 /* Catapults_iOS.xcdatamodeld in Sources */,
 				47ED22DF1C90403B0030A4A9 /* PubNub.swift in Sources */,
 			);
@@ -333,10 +345,12 @@
 			baseConfigurationReference = 13CABB503B1E7F145E52AB78 /* Pods-Catapults-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Catapults-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ham.Catapults-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -345,6 +359,7 @@
 			baseConfigurationReference = 11C32A1FFDDC461BB1DDDBE1 /* Pods-Catapults-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Catapults-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ham.Catapults-iOS";
