@@ -12,7 +12,8 @@ let publishKey = "pub-c-baa81eb3-c043-4cd8-8b5a-3dc257ded619"
 let subcribeKey = "sub-c-7539a622-e5f2-11e5-aad5-02ee2ddab7fe"
 
 protocol PubNubChatDelegate: class {
-    func messagesRecievedCompletion(messagesRecieved:[String]?) -> Void
+    func getAllMessagesCompletion(messagesRecieved:[String]?) -> Void
+    func didRecieveMessageCompletion(messageRecived:String) -> Void
 }
 
 class PubNubClient: NSObject, PNObjectEventListener {
@@ -48,12 +49,14 @@ class PubNubClient: NSObject, PNObjectEventListener {
             
             // Message has been received on channel group stored in
             // message.data.subscribedChannel
+            self.chatDelegate?.didRecieveMessageCompletion(message.data.message as! String)
         }
         else {
             
             // Message has been received on channel stored in
             // message.data.subscribedChannel
         }
+        self.chatDelegate?.didRecieveMessageCompletion(message.data.message as! String)
         
         print("Received message: \(message.data.message) on channel " +
             "\((message.data.actualChannel ?? message.data.subscribedChannel)!) at " +
@@ -69,6 +72,7 @@ class PubNubClient: NSObject, PNObjectEventListener {
             
             // Presence event has been received on channel group stored in
             // event.data.subscribedChannel
+            
         }
         else {
             
@@ -106,22 +110,22 @@ class PubNubClient: NSObject, PNObjectEventListener {
             
             // Select last object from list of channels and send message to it.
             let targetChannel = client.channels().last
-            client.publish("Hello from the PubNub Swift SDK", toChannel: targetChannel!,
-                compressed: false, withCompletion: { (status) -> Void in
-                    
-                    if !status.error {
-                        
-                        // Message successfully published to specified channel.
-                    }
-                    else{
-                        // Handle message publish error. Check 'category' property
-                        // to find out possible reason because of which request did fail.
-                        // Review 'errorData' property (which has PNErrorData data type) of status
-                        // object to get additional information about issue.
-                        //
-                        // Request can be resent using: status.retry()
-                    }
-            })
+//            client.publish("Hello from the PubNub Swift SDK", toChannel: targetChannel!,
+//                compressed: false, withCompletion: { (status) -> Void in
+//                    
+//                    if !status.error {
+//                        
+//                        // Message successfully published to specified channel.
+//                    }
+//                    else{
+//                        // Handle message publish error. Check 'category' property
+//                        // to find out possible reason because of which request did fail.
+//                        // Review 'errorData' property (which has PNErrorData data type) of status
+//                        // object to get additional information about issue.
+//                        //
+//                        // Request can be resent using: status.retry()
+//                    }
+//            })
         }
         else if status.category == .PNReconnectedCategory {
             
@@ -164,9 +168,9 @@ class PubNubClient: NSObject, PNObjectEventListener {
                 //   result.data.start - oldest message time stamp in response
                 //   result.data.end - newest message time stamp in response
                 //   result.data.messages - list of messages
-                print(result!.data.messages)
+                //print(result!.data.messages)
                 recievedMessages = result!.data.messages as! [String]
-                self.chatDelegate?.messagesRecievedCompletion(recievedMessages)
+                self.chatDelegate?.getAllMessagesCompletion(recievedMessages)
             
             }
                 
@@ -180,7 +184,7 @@ class PubNubClient: NSObject, PNObjectEventListener {
                 // Request can be resent using: status.retry()
             }
         })
-        print(recievedMessages)
+        
         return recievedMessages
    }
     

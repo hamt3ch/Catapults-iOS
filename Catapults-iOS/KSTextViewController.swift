@@ -37,7 +37,6 @@ class KSTextViewController: SLKTextViewController, PubNubChatDelegate {
     
     //when Send button is pressed
     override func didPressRightButton(sender: AnyObject!) {
-        
         self.textView.refreshFirstResponder()
         let messageBody = self.textView.text.copy() as! String
         
@@ -53,7 +52,6 @@ class KSTextViewController: SLKTextViewController, PubNubChatDelegate {
         
         //Send Message thru ChatClient
         PubNubClient.sharedClient.sendMessage(messageBody)
-        PubNubClient.sharedClient.getMessages("my_channel")
 
         self.tableView.slk_scrollToBottomAnimated(true)
         super.didPressRightButton(sender)
@@ -83,7 +81,7 @@ class KSTextViewController: SLKTextViewController, PubNubChatDelegate {
         
         return cell
     }
-    
+
     //MARK: - Setup Texting
     func setupController () {
         //Setup bottom bar
@@ -106,15 +104,26 @@ class KSTextViewController: SLKTextViewController, PubNubChatDelegate {
         tableView.registerNib(nibReq, forCellReuseIdentifier: "KSMessageTVCell")
         tableView.rowHeight = UITableViewAutomaticDimension //needed for autolayout
         tableView.estimatedRowHeight = 70.0 //needed for autolayout
-        print(tableView.estimatedRowHeight)
     }
     
     
     //MARK: - PUBNUB Chat Delegate
-    func messagesRecievedCompletion(messagesRecieved: [String]?) {
-        print(messages)
-        self.messages = messagesRecieved
+    func getAllMessagesCompletion(messagesRecieved: [String]?) {
+        self.messages = messagesRecieved?.reverse()
         self.tableView.reloadData()
+    }
+    
+    func didRecieveMessageCompletion(messageRecived: String) {
+        addRowToTableview(messageRecived) //append newMessage from callback
+    }
+    
+    //MARK: - Helpers
+    func addRowToTableview(message:String){ //add new message to tableView
+        self.messages?.insert(message, atIndex: 0) //add to top
+        tableView.beginUpdates() //start update
+        let toAdd = NSIndexPath(forRow: 0, inSection: 0) //becuase of slackTextController new text is added to the top of array (stack)
+        tableView.insertRowsAtIndexPaths([toAdd], withRowAnimation: .Top) // insert new cell
+        tableView.endUpdates() //end update
     }
     
 

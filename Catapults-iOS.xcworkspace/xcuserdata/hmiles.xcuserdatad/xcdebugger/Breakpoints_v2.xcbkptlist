@@ -67,43 +67,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Catapults-iOS/PubNub.swift"
-            timestampString = "479224442.736443"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "getMessages(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Catapults-iOS/KSTextViewController.swift"
-            timestampString = "479227152.316852"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "didPressRightButton(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Catapults-iOS/KSTextViewController.swift"
-            timestampString = "479227152.316852"
+            timestampString = "479322709.53909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -115,16 +83,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Catapults-iOS/KSTextViewController.swift"
-            timestampString = "479227502.806934"
+            filePath = "Catapults-iOS/PubNub.swift"
+            timestampString = "479272402.487436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "messagesRecievedCompletion(_:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "client(_:didReceiveMessage:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -135,12 +103,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Catapults-iOS/KSTextViewController.swift"
-            timestampString = "479227502.806934"
+            timestampString = "479322937.930584"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "addRowToTableview(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -151,12 +119,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Catapults-iOS/KSTextViewController.swift"
-            timestampString = "479227502.806934"
+            timestampString = "479322709.53909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "setupController()"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
