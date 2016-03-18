@@ -24,7 +24,6 @@ class PubNubClient: NSObject, PNObjectEventListener {
     
     weak var chatDelegate: PubNubChatDelegate?
     
-    
     //Variables
     var recievedMessages: AnyObject?
     
@@ -140,8 +139,8 @@ class PubNubClient: NSObject, PNObjectEventListener {
     }
     
     //MARK: - Public Methods Controller Uses
-    func sendMessage(messageToSend: String) {
-        self.client!.publish(messageToSend, toChannel: "my_channel",
+    func sendMessage(messageToSend: String, sendTo:String) {
+        self.client!.publish(messageToSend, toChannel: sendTo,
             compressed: false, withCompletion: { (status) -> Void in
                 
                 if !status.error {
@@ -170,7 +169,7 @@ class PubNubClient: NSObject, PNObjectEventListener {
                 //   result.data.messages - list of messages
                 //print(result!.data.messages)
                 recievedMessages = result!.data.messages as! [String]
-                self.chatDelegate?.getAllMessagesCompletion(recievedMessages)
+                self.chatDelegate?.getAllMessagesCompletion(recievedMessages) //completions block
             
             }
                 
@@ -187,6 +186,15 @@ class PubNubClient: NSObject, PNObjectEventListener {
         
         return recievedMessages
    }
+    
+    func subscribeTo(channel:String) {
+        client?.subscribeToChannels([channel], withPresence: true) //subscribe to selectedUserChannel
+    }
+    
+    func unsubscribeFrom(channel:String){
+        //TODO: - Unsubscribe from channel Param
+        client?.unsubscribeFromAll()
+    }
     
 
 }

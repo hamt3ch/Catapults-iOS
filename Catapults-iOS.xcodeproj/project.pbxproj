@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47196D4A1C91E62D0060CA05 /* KSUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47196D491C91E62D0060CA05 /* KSUsersViewController.swift */; };
+		47196D4C1C9240310060CA05 /* KSUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47196D4B1C9240310060CA05 /* KSUserTableViewCell.swift */; };
+		47196D4E1C9247E10060CA05 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47196D4D1C9247E10060CA05 /* Firebase.swift */; };
+		47196D541C9356100060CA05 /* Shoe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47196D521C93560F0060CA05 /* Shoe.swift */; };
+		47196D551C9356100060CA05 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47196D531C93560F0060CA05 /* User.swift */; };
 		47ED22CA1C9038A70030A4A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED22C91C9038A70030A4A9 /* AppDelegate.swift */; };
 		47ED22CC1C9038A70030A4A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED22CB1C9038A70030A4A9 /* ViewController.swift */; };
 		47ED22CF1C9038A70030A4A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47ED22CD1C9038A70030A4A9 /* Main.storyboard */; };
@@ -23,6 +28,11 @@
 /* Begin PBXFileReference section */
 		11C32A1FFDDC461BB1DDDBE1 /* Pods-Catapults-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catapults-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Catapults-iOS/Pods-Catapults-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		13CABB503B1E7F145E52AB78 /* Pods-Catapults-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catapults-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Catapults-iOS/Pods-Catapults-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		47196D491C91E62D0060CA05 /* KSUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUsersViewController.swift; sourceTree = "<group>"; };
+		47196D4B1C9240310060CA05 /* KSUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUserTableViewCell.swift; sourceTree = "<group>"; };
+		47196D4D1C9247E10060CA05 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		47196D521C93560F0060CA05 /* Shoe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shoe.swift; sourceTree = "<group>"; };
+		47196D531C93560F0060CA05 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		47ED22C61C9038A70030A4A9 /* Catapults-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Catapults-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47ED22C91C9038A70030A4A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47ED22CB1C9038A70030A4A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +68,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		47196D4F1C9247FB0060CA05 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				47ED22DE1C90403B0030A4A9 /* PubNub.swift */,
+				47196D4D1C9247E10060CA05 /* Firebase.swift */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		47196D501C9248650060CA05 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				47ED22CB1C9038A70030A4A9 /* ViewController.swift */,
+				47ED22E01C9050460030A4A9 /* KSTextViewController.swift */,
+				47196D491C91E62D0060CA05 /* KSUsersViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		47196D511C9248720060CA05 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47196D4B1C9240310060CA05 /* KSUserTableViewCell.swift */,
+				47ED22EE1C906AED0030A4A9 /* KSMessageCell.swift */,
+				47ED22EF1C906AED0030A4A9 /* KSMessageCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		47196D561C93561A0060CA05 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				47196D521C93560F0060CA05 /* Shoe.swift */,
+				47196D531C93560F0060CA05 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		47ED22BD1C9038A70030A4A9 = {
 			isa = PBXGroup;
 			children = (
@@ -79,12 +127,11 @@
 		47ED22C81C9038A70030A4A9 /* Catapults-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				47ED22DE1C90403B0030A4A9 /* PubNub.swift */,
-				47ED22E01C9050460030A4A9 /* KSTextViewController.swift */,
-				47ED22EE1C906AED0030A4A9 /* KSMessageCell.swift */,
-				47ED22EF1C906AED0030A4A9 /* KSMessageCell.xib */,
+				47196D4F1C9247FB0060CA05 /* Clients */,
+				47196D501C9248650060CA05 /* Controllers */,
+				47196D561C93561A0060CA05 /* Model */,
+				47196D511C9248720060CA05 /* Views */,
 				47ED22C91C9038A70030A4A9 /* AppDelegate.swift */,
-				47ED22CB1C9038A70030A4A9 /* ViewController.swift */,
 				47ED22CD1C9038A70030A4A9 /* Main.storyboard */,
 				47ED22D31C9038A70030A4A9 /* Assets.xcassets */,
 				47ED22D51C9038A70030A4A9 /* LaunchScreen.storyboard */,
@@ -228,10 +275,15 @@
 			files = (
 				47ED22CC1C9038A70030A4A9 /* ViewController.swift in Sources */,
 				47ED22E11C9050460030A4A9 /* KSTextViewController.swift in Sources */,
+				47196D4A1C91E62D0060CA05 /* KSUsersViewController.swift in Sources */,
 				47ED22CA1C9038A70030A4A9 /* AppDelegate.swift in Sources */,
+				47196D4C1C9240310060CA05 /* KSUserTableViewCell.swift in Sources */,
 				47ED22F01C906AED0030A4A9 /* KSMessageCell.swift in Sources */,
+				47196D4E1C9247E10060CA05 /* Firebase.swift in Sources */,
 				47ED22D21C9038A70030A4A9 /* Catapults_iOS.xcdatamodeld in Sources */,
+				47196D541C9356100060CA05 /* Shoe.swift in Sources */,
 				47ED22DF1C90403B0030A4A9 /* PubNub.swift in Sources */,
+				47196D551C9356100060CA05 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

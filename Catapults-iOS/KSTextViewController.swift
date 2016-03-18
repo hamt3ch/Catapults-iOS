@@ -12,15 +12,25 @@ import SlackTextViewController
 class KSTextViewController: SLKTextViewController, PubNubChatDelegate {
     
     var messages: [String]?
+    var currentChannel: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = currentChannel
+        
+        PubNubClient.sharedClient.subscribeTo(currentChannel!) //subscribe to currentChannel selected
+        
         self.setupController()
         PubNubClient.sharedClient.chatDelegate = self
-        let response = PubNubClient.sharedClient.getMessages("my_channel")
+        let response = PubNubClient.sharedClient.getMessages(currentChannel!)
         //messages = response[0] // messagesString is first index in respons from client
         
         // Do any additional setup after loading the view.
+ 
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +61,7 @@ class KSTextViewController: SLKTextViewController, PubNubChatDelegate {
         date = strDate
         
         //Send Message thru ChatClient
-        PubNubClient.sharedClient.sendMessage(messageBody)
+        PubNubClient.sharedClient.sendMessage(messageBody,sendTo: currentChannel!)
 
         self.tableView.slk_scrollToBottomAnimated(true)
         super.didPressRightButton(sender)
@@ -127,7 +137,6 @@ class KSTextViewController: SLKTextViewController, PubNubChatDelegate {
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -135,6 +144,6 @@ class KSTextViewController: SLKTextViewController, PubNubChatDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }

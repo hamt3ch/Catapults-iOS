@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Firebase.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Catapults-iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +32,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E59BC666A5332FB061030EA1512A393</key>
+		<key>35813A8FE482BA33958F99FC5AEDBCBF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3C98B9E13AC4D4BEE364C74E8DF3FB53</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,12 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D9983166DB9EDAC8875824FFDFF9DD6D</key>
+		<key>B7AC9326D819482593FE118E915409D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F7DCBCC4C9A5D35D82960CE8E1353FC0</key>
+		<key>D60B120C2F36F21023B41E73DB78A08E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

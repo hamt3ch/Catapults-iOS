@@ -14,12 +14,8 @@ import PubNub
 class AppDelegate: UIResponder, UIApplicationDelegate, PNObjectEventListener {
 
     var window: UIWindow?
-    var chatClient = PubNubClient() // instantiate pubNub Client for chat
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        PubNubClient.sharedClient.client?.subscribeToChannels(["my_channel"], withPresence: true)
-        
         return true
     }
 
