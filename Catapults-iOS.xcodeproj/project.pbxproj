@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41F229B61CA31CE300114802 /* KSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F229B51CA31CE300114802 /* KSLoginViewController.swift */; };
 		47196D4A1C91E62D0060CA05 /* KSUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47196D491C91E62D0060CA05 /* KSUsersViewController.swift */; };
 		47196D4C1C9240310060CA05 /* KSUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47196D4B1C9240310060CA05 /* KSUserTableViewCell.swift */; };
 		47196D4E1C9247E10060CA05 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47196D4D1C9247E10060CA05 /* Firebase.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		11C32A1FFDDC461BB1DDDBE1 /* Pods-Catapults-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catapults-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Catapults-iOS/Pods-Catapults-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		13CABB503B1E7F145E52AB78 /* Pods-Catapults-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catapults-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Catapults-iOS/Pods-Catapults-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		41F229B51CA31CE300114802 /* KSLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSLoginViewController.swift; sourceTree = "<group>"; };
 		47196D491C91E62D0060CA05 /* KSUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUsersViewController.swift; sourceTree = "<group>"; };
 		47196D4B1C9240310060CA05 /* KSUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUserTableViewCell.swift; sourceTree = "<group>"; };
 		47196D4D1C9247E10060CA05 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				47ED22CB1C9038A70030A4A9 /* ViewController.swift */,
 				47ED22E01C9050460030A4A9 /* KSTextViewController.swift */,
 				47196D491C91E62D0060CA05 /* KSUsersViewController.swift */,
+				41F229B51CA31CE300114802 /* KSLoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				47ED22F01C906AED0030A4A9 /* KSMessageCell.swift in Sources */,
 				47196D4E1C9247E10060CA05 /* Firebase.swift in Sources */,
 				47ED22D21C9038A70030A4A9 /* Catapults_iOS.xcdatamodeld in Sources */,
+				41F229B61CA31CE300114802 /* KSLoginViewController.swift in Sources */,
 				47196D541C9356100060CA05 /* Shoe.swift in Sources */,
 				47ED22DF1C90403B0030A4A9 /* PubNub.swift in Sources */,
 				47196D551C9356100060CA05 /* User.swift in Sources */,
