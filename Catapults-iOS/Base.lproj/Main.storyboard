@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k48-4i-RFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2968" y="737"/>
+            <point key="canvasLocation" x="2714" y="823"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EN5-Wn-xUn">
@@ -101,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZm-EP-v46" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2418" y="737"/>
+            <point key="canvasLocation" x="2164" y="823"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="d25-Ez-srt">
@@ -114,10 +114,32 @@
                     <view key="view" contentMode="scaleToFill" id="luS-S5-WrH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Be-Nt-044">
+                                <rect key="frame" x="225" y="550" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="202-vF-g4I"/>
+                                    <constraint firstAttribute="width" constant="150" id="koJ-Ab-dpc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <state key="normal" title="Login with Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fbLoginTapped:" destination="VmF-xS-x4B" eventType="touchUpInside" id="ZvQ-Ia-mnP"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Be-Nt-044" firstAttribute="centerX" secondItem="luS-S5-WrH" secondAttribute="centerX" id="Itx-ab-hSH"/>
+                            <constraint firstItem="OiQ-Dz-5ga" firstAttribute="top" secondItem="2Be-Nt-044" secondAttribute="bottom" constant="20" id="xeo-XR-cjX"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <segue destination="RSW-2P-vXB" kind="show" id="kG5-GD-ijD"/>
+                        <outlet property="fbLoginButton" destination="2Be-Nt-044" id="i1e-tu-woa"/>
+                        <segue destination="qfo-QB-jYB" kind="show" identifier="LoginViewSegue" id="UU0-Tf-bmf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDE-Fi-C8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -125,22 +147,22 @@
             <point key="canvasLocation" x="1595" y="82"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="m0n-iO-5RD">
+        <scene sceneID="PHf-JN-XsR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RSW-2P-vXB" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qfo-QB-jYB" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7P9-eD-GGI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0K7-Kx-pyk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="hUi-Si-v4z" kind="relationship" relationship="rootViewController" id="LWe-XD-Fbt"/>
+                        <segue destination="hUi-Si-v4z" kind="relationship" relationship="rootViewController" id="REL-JE-Y2p"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tlC-az-aLl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U0N-Ic-cJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1595" y="822"/>
+            <point key="canvasLocation" x="1595" y="755"/>
         </scene>
     </scenes>
 </document>

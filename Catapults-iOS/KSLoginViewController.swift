@@ -11,20 +11,55 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 
 class KSLoginViewController: UIViewController {
+    let readPermissions = ["public_profile", "email", "user_friends"]
+    @IBOutlet weak var fbLoginButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //adding facebook login button to center of view
-        let loginButton = FBSDKLoginButton()
-        loginButton.center = self.view.center;
-        self.view.addSubview(loginButton)
+        fbLoginButton.layer.cornerRadius = 10
+        fbLoginButton.clipsToBounds = true
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if (User.currentUser != nil) {
+            self.performSegueWithIdentifier("LoginViewSegue", sender: nil)
+        } else {
+            print("User needs to log in")
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func fbLoginTapped(sender: AnyObject) {
+        let loginManager = FBSDKLoginManager()
+        loginManager.logInWithReadPermissions(readPermissions, fromViewController: self, handler:{(result, error) -> Void in
+        
+            //alert messages if not logged in
+            if (error != nil || result == nil) {
+                //Something went wrong with Facebook. Please try again later!"
+                print(error!.localizedDescription)
+            } else if (result.isCancelled) {
+                print("User cancelled login")
+            } else if (!result.declinedPermissions.isEmpty) {
+                print("User didn't grant permissions.")
+            } else {
+                
+                //If User is authenticated and ready to go
+                let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
+                FirebaseClient.sharedClient.loginWithFacebook(accessToken)
+                //self.performSegueWithIdentifier("LoginViewSegue", sender: nil) //bug occurs where segue cannot be performed, uncomment when bug is fixed
+            }
+            
+        })
+    }
+
+    
+    
     
 
     /*
@@ -36,5 +71,33 @@ class KSLoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    /* MARK: - FBSDKLoginButtonDelegate methods
+    // To get notifications of login results or logout events assign a delegate to FBSDKLoginButton that confirms to FBSDKLoginButtonDelegate protocol.
+    
+    in viewDidLoad()
+    adding facebook login button to center of view
+    loginButton.center = self.view.center;
+    self.view.addSubview(loginButton)
+    loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        if (error != nil) {
+            print(error.localizedDescription)
+        } else {
+            //**BUG HERE: doesn't perform segue**//
+            self.performSegueWithIdentifier("LoginViewSegue", sender: self)
+            print("User logged in. \(result)")
+        }
+        
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        //**segue works fine here**//
+        self.performSegueWithIdentifier("LoginViewSegue", sender: self)
+        print("User logged out")
+    }
+    
+    */// END FBSDKLoginButtonDelegate methods
 
 }
