@@ -60,7 +60,7 @@ class FirebaseClient: NSObject {
                     //set global currentUser
                     let newUser = User(data: authData)
                     User.currentUser = newUser
-                    
+                    print("User logging in thru FB: \(User.currentUser)")
                     //set value back into Firebase
                     // FirebaseClient.saveUser(User.currentUser!)
                     self.loginDelegate?.loginCompletion()
@@ -91,7 +91,10 @@ class FirebaseClient: NSObject {
             for key in users.keys {// Parse based upon Keys
                 if let profileInfo = users[key] as? [String:NSObject] {
                     let profileName = profileInfo["displayName"] as! String
+                    //all users except current user
                     usernames.append(profileName)
+                    
+                    
                 }
             }
             

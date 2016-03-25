@@ -17,6 +17,7 @@ class KSUsersViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("Getting users...\(User.currentUser)")
         usersTableView.delegate = self
         usersTableView.dataSource = self
         
@@ -28,17 +29,29 @@ class KSUsersViewController: UIViewController, UITableViewDataSource, UITableVie
                 print("couldnt get Users")
             }
         }
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         PubNubClient.sharedClient.unsubscribeFrom("All") //unsubscribe from allChannels
-
+        print("Got all users...\(User.currentUser)")
+        if User.currentUser != nil {
+            print("Getting current user's name..\(User.currentUser)")
+            self.title = User.currentUser!.displayName
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func logoutTapped(sender: AnyObject) {
+        User.currentUser?.logout()
     }
     
     //MARK: - UITableView DataSource

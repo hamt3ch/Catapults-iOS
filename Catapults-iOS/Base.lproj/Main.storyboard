@@ -44,7 +44,7 @@
         <!--Users View Controller-->
         <scene sceneID="8fS-c1-oRg">
             <objects>
-                <viewController id="hUi-Si-v4z" customClass="KSUsersViewController" customModule="Catapults_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KSUsersViewController" id="hUi-Si-v4z" customClass="KSUsersViewController" customModule="Catapults_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8d7-S2-TbX"/>
                         <viewControllerLayoutGuide type="bottom" id="UWb-PC-cEv"/>
@@ -93,7 +93,13 @@
                             <constraint firstAttribute="trailing" secondItem="V5c-qV-x1G" secondAttribute="trailing" id="pSA-4S-a9V"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6cR-Q9-Sfc"/>
+                    <navigationItem key="navigationItem" id="6cR-Q9-Sfc">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="2Dd-x5-fbG">
+                            <connections>
+                                <action selector="logoutTapped:" destination="hUi-Si-v4z" id="wBk-81-eeo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="usersTableView" destination="V5c-qV-x1G" id="tTS-DZ-7ac"/>
@@ -149,7 +155,7 @@
         <!--Navigation Controller-->
         <scene sceneID="PHf-JN-XsR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qfo-QB-jYB" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UserViewNavController" automaticallyAdjustsScrollViewInsets="NO" id="qfo-QB-jYB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0K7-Kx-pyk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

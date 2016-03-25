@@ -17,18 +17,20 @@ class KSLoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fbLoginButton.layer.cornerRadius = 10
+        fbLoginButton.layer.cornerRadius = 5
         fbLoginButton.clipsToBounds = true
     }
     
+    /*
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        if (User.currentUser != nil) {
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            print(FBSDKAccessToken.currentAccessToken())
             self.performSegueWithIdentifier("LoginViewSegue", sender: nil)
         } else {
             print("User needs to log in")
         }
     }
+    */
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,7 +54,12 @@ class KSLoginViewController: UIViewController {
                 //If User is authenticated and ready to go
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
                 FirebaseClient.sharedClient.loginWithFacebook(accessToken)
-                //self.performSegueWithIdentifier("LoginViewSegue", sender: nil) //bug occurs where segue cannot be performed, uncomment when bug is fixed
+                //bug occurs where segue cannot be performed, uncomment when bug is fixed
+                
+                let usersVC = (self.storyboard?.instantiateViewControllerWithIdentifier("KSUsersViewController"))! as UIViewController
+                let usersNavController = UINavigationController(rootViewController: usersVC)
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.window?.rootViewController = usersNavController
             }
             
         })

@@ -15,8 +15,27 @@ import FBSDKCoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate, PNObjectEventListener {
 
     var window: UIWindow?
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
+
+        if User.currentUser != nil && FBSDKAccessToken.currentAccessToken() != nil {
+            print("Current user detected: \(User.currentUser!.displayName)")
+            print("USER: \(User.currentUser)")
+            //create a new instance of this controller if user is detected
+            let vc = storyboard.instantiateViewControllerWithIdentifier("UserViewNavController") as! UINavigationController
+            
+            //the arrow of modal segue does this, so there is 100% parity here and in the actual storyboard
+            window?.rootViewController = vc
+            
+        } else {
+            print("USER in else of app delegate: \(User.currentUser)")
+            userDidLogout()
+        }
+        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions) //Facebook LaunchOptions
     }
     
@@ -27,6 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNObjectEventListener {
             openURL: url,
             sourceApplication: sourceApplication,
             annotation: annotation)
+    }
+    
+    func userDidLogout() {
+        print("USER in userDidLogout: \(User.currentUser)")
+        let vc = storyboard.instantiateInitialViewController()
+        window?.rootViewController = vc
     }
 
     func applicationWillResignActive(application: UIApplication) {
