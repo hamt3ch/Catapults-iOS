@@ -1,4 +1,4 @@
-//
+ //
 //  Firebase.swift
 //  KickSwap
 //
@@ -16,6 +16,7 @@ protocol FirebaseLoginDelegate: class {
 
 typealias StringErrorCompletionBlock = ([String]?, NSError?) -> Void
 typealias UserErrorCompletionBlock = (User?, NSError?) -> Void
+typealias UserArrayErrorCompletionBlock = ([User]?, NSError?) -> Void
 
 class FirebaseClient: NSObject {
     
@@ -73,7 +74,7 @@ class FirebaseClient: NSObject {
         getUserRef().childByAppendingPath(user.uid).setValue(user.providerData)
     }
     
-    func getUsers(completion:StringErrorCompletionBlock) {
+    func getUsers(completion:UserArrayErrorCompletionBlock) {
         let ref = getUserRef()
         // Get the data on a post that has changed
         ref.observeEventType(.Value, withBlock: { snapshot in
@@ -82,24 +83,18 @@ class FirebaseClient: NSObject {
             if (snapshot == nil) {
                 completion(nil, nil)
                 return
-            }
-            
-            let users = snapshot.value as! [String:NSObject] //get all Users
-            
-            var usernames = [String]()
-            
-            for key in users.keys {// Parse based upon Keys
-                if let profileInfo = users[key] as? [String:NSObject] {
-                    let profileName = profileInfo["displayName"] as! String
-                    //all users except current user
-                    usernames.append(profileName)
-                    
-                    
+            } else {
+                let users = snapshot.value as! [String:NSObject] //get all Users
+                var userArray = [User]()
+                for key in users.keys {
+                    if let profileInfo = users[key] as? [String:NSObject] {
+                        print(profileInfo)
+                        userArray.append(User(dictionary: profileInfo as NSDictionary, id: key))
+                    }
                 }
+                
+                completion(userArray,nil)
             }
-            
-            completion(usernames, nil)
-            
         })
     }
     

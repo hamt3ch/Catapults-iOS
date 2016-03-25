@@ -12,18 +12,21 @@ import SlackTextViewController
 class KSTextViewController: SLKTextViewController, PubNubChatDelegate {
     
     var messages: [String]?
+    var user:String?
     var currentChannel: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = currentChannel
+        
+        title = user //write name of user you are talking to
         
         PubNubClient.sharedClient.subscribeTo(currentChannel!) //subscribe to currentChannel selected
         
-        self.setupController()
-        PubNubClient.sharedClient.chatDelegate = self
-        let response = PubNubClient.sharedClient.getMessages(currentChannel!)
-        //messages = response[0] // messagesString is first index in respons from client
+        //init this viewController
+        setupController()
+        
+        //setup PubNub Delegate
+        setupPubNub()
         
         // Do any additional setup after loading the view.
  
@@ -118,6 +121,11 @@ class KSTextViewController: SLKTextViewController, PubNubChatDelegate {
     
     
     //MARK: - PUBNUB Chat Delegate
+    func setupPubNub(){
+        PubNubClient.sharedClient.chatDelegate = self
+        PubNubClient.sharedClient.getMessages(currentChannel!)
+    }
+    
     func getAllMessagesCompletion(messagesRecieved: [String]?) {
         self.messages = messagesRecieved?.reverse()
         self.tableView.reloadData()

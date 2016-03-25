@@ -60,20 +60,10 @@ class KSLoginViewController: UIViewController {
                     self.performSegueWithIdentifier("toUsers", sender: nil) // goto UserViewController
                 }
             }
-//                //bug occurs where segue cannot be performed, uncomment when bug is fixed
-//                
-//                let usersVC = (self.storyboard?.instantiateViewControllerWithIdentifier("KSUsersViewController"))! as UIViewController
-//                let usersNavController = UINavigationController(rootViewController: usersVC)
-//                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//                appDelegate.window?.rootViewController = usersNavController
             }
             
         })
     }
-
-    
-    
-    
 
     /*
     // MARK: - Navigation
@@ -84,33 +74,4 @@ class KSLoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    /* MARK: - FBSDKLoginButtonDelegate methods
-    // To get notifications of login results or logout events assign a delegate to FBSDKLoginButton that confirms to FBSDKLoginButtonDelegate protocol.
-    
-    in viewDidLoad()
-    adding facebook login button to center of view
-    loginButton.center = self.view.center;
-    self.view.addSubview(loginButton)
-    loginButton.readPermissions = ["public_profile", "email", "user_friends"]
-    
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        if (error != nil) {
-            print(error.localizedDescription)
-        } else {
-            //**BUG HERE: doesn't perform segue**//
-            self.performSegueWithIdentifier("LoginViewSegue", sender: self)
-            print("User logged in. \(result)")
-        }
-        
-    }
-    
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        //**segue works fine here**//
-        self.performSegueWithIdentifier("LoginViewSegue", sender: self)
-        print("User logged out")
-    }
-    
-    */// END FBSDKLoginButtonDelegate methods
-
 }

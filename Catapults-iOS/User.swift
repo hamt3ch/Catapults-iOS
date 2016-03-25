@@ -60,6 +60,17 @@ class User: NSObject {
         self.auth = dictionary["auth"] as? NSDictionary
         self.providerData = dictionary["providerData"]as? NSDictionary
     }
+    
+    //Querying User Table Objects
+    init(dictionary:NSDictionary, id: String){
+        //self.authData = dictionary["authData"] as? FAuthData
+        self.authDataAsDictionary = dictionary
+        
+        self.displayName = dictionary["displayName"] as? String
+        self.profilePicUrl = dictionary["profileImageURL"] as? String
+        
+        self.uid = id as? String
+    }
 
     func logout() {
         User.currentUser = nil

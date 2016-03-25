@@ -12,7 +12,7 @@ class KSUsersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var usersTableView: UITableView!
     
-    var channel = [String]() //User Channels
+    var channels = [User]() //User Channels
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +21,9 @@ class KSUsersViewController: UIViewController, UITableViewDataSource, UITableVie
         usersTableView.delegate = self
         usersTableView.dataSource = self
         
-        FirebaseClient.sharedClient.getUsers() { (usernames, error) -> Void in
+        FirebaseClient.sharedClient.getUsers() { (users, error) -> Void in
             if(error == nil){
-                self.channel = usernames!
+                self.channels = users!
                 self.usersTableView.reloadData()
             } else {
                 print("couldnt get Users")
@@ -51,14 +51,14 @@ class KSUsersViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: - UITableView DataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return channel.count
+        return channels.count
     }
     
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("UserCell") as! KSUserTableViewCell
         
-        cell.usernameLabel.text = channel[indexPath.row]
+        cell.usernameLabel.text = channels[indexPath.row].displayName
         
         return cell
     }
@@ -71,12 +71,20 @@ class KSUsersViewController: UIViewController, UITableViewDataSource, UITableVie
         // Pass the selected object to the new view controller.
         let cell = sender as! KSUserTableViewCell //cast sender >> UICollectionCell
         let index = self.usersTableView.indexPathForCell(cell) //GetIndex that was selected
-        let selectedUser = self.channel[index!.row] // getMovie from dictionary
+        let selectedUser = self.channels[index!.row]// getMovie from dictionary
+        var channel:String?
         
-        let detail = segue.destinationViewController as! KSTextViewController
-        detail.currentChannel = selectedUser
-        
+        //create unique hash between users that will always create the same channelId
+        if(selectedUser.uid > User.currentUser?.uid){
+            channel = selectedUser.uid! + (User.currentUser?.uid)!
+        } else {
+            channel = (User.currentUser?.uid)! + selectedUser.uid!
+        }
 
+        let detail = segue.destinationViewController as! KSTextViewController
+        detail.currentChannel = channel
+        detail.user = selectedUser.displayName
+        
     }
 
 }

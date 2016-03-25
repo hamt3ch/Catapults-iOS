@@ -71,11 +71,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Catapults-iOS/KSTextViewController.swift"
-            timestampString = "479425619.012596"
+            timestampString = "480569897.841111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "didPressRightButton(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -103,11 +103,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Catapults-iOS/KSTextViewController.swift"
-            timestampString = "479425619.012596"
+            timestampString = "480569897.841111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "addRowToTableview(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -147,7 +147,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Catapults-iOS/PubNub.swift"
@@ -160,14 +160,14 @@
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Catapults_iOS.PubNubClient.getMessages (Swift.String) -&gt; Swift.Array&lt;Swift.String&gt;"
                   moduleName = "Catapults-iOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hmiles/Programming/hamtech/Codepath/Catapults-iOS/Catapults-iOS/PubNub.swift"
-                  timestampString = "480566186.327207"
+                  timestampString = "480569581.485096"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "162"
@@ -175,14 +175,14 @@
                   offsetFromSymbolStart = "97">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Catapults_iOS.PubNubClient.(getMessages (Swift.String) -&gt; Swift.Array&lt;Swift.String&gt;).(closure #1)"
                   moduleName = "Catapults-iOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hmiles/Programming/hamtech/Codepath/Catapults-iOS/Catapults-iOS/PubNub.swift"
-                  timestampString = "480566186.327303"
+                  timestampString = "480569581.485221"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "162"
@@ -221,6 +221,70 @@
             startingLineNumber = "60"
             endingLineNumber = "60"
             landmarkName = "fbLoginTapped(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Catapults-iOS/Firebase.swift"
+            timestampString = "480569006.280093"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "getUsers(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Catapults-iOS/Firebase.swift"
+            timestampString = "480569006.280093"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "getUsers(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Catapults-iOS/User.swift"
+            timestampString = "480568918.925805"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "init(dictionary:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Catapults-iOS/User.swift"
+            timestampString = "480568919.43336"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "init(dictionary:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
