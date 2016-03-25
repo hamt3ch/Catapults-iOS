@@ -115,7 +115,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Catapults-iOS/KSUsersViewController.swift"
@@ -124,8 +124,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
             endingLineNumber = "35"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "5">
+            landmarkName = "KSUsersViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -157,6 +157,70 @@
             startingLineNumber = "162"
             endingLineNumber = "162"
             landmarkName = "getMessages(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Catapults_iOS.PubNubClient.getMessages (Swift.String) -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "Catapults-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hmiles/Programming/hamtech/Codepath/Catapults-iOS/Catapults-iOS/PubNub.swift"
+                  timestampString = "480566186.327207"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "97">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Catapults_iOS.PubNubClient.(getMessages (Swift.String) -&gt; Swift.Array&lt;Swift.String&gt;).(closure #1)"
+                  moduleName = "Catapults-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hmiles/Programming/hamtech/Codepath/Catapults-iOS/Catapults-iOS/PubNub.swift"
+                  timestampString = "480566186.327303"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Catapults-iOS/KSLoginViewController.swift"
+            timestampString = "480565825.205308"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "fbLoginTapped(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Catapults-iOS/KSLoginViewController.swift"
+            timestampString = "480565826.498881"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "fbLoginTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

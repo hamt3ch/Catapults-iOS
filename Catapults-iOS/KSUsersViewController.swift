@@ -35,13 +35,7 @@ class KSUsersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        PubNubClient.sharedClient.unsubscribeFrom("All") //unsubscribe from allChannels
-        print("Got all users...\(User.currentUser)")
-        if User.currentUser != nil {
-            print("Getting current user's name..\(User.currentUser)")
-            self.title = User.currentUser!.displayName
-        }
-        
+        PubNubClient.sharedClient.unsubscribeFrom("All") //unsubscribe from allChannels   
     }
 
     override func didReceiveMemoryWarning() {

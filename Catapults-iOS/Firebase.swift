@@ -8,16 +8,14 @@
 
 import Firebase
 
+//TODO: Create Completion blocks
 protocol FirebaseLoginDelegate: class {
     func loginCompletion() -> Void
     func loginFailure(error: NSError?) -> Void
 }
 
-protocol FirebaseUserDelegate: class {
-    func getUsersCompletion(users: [String:NSObject]) -> Void
-}
-
 typealias StringErrorCompletionBlock = ([String]?, NSError?) -> Void
+typealias UserErrorCompletionBlock = (User?, NSError?) -> Void
 
 class FirebaseClient: NSObject {
     
@@ -25,7 +23,6 @@ class FirebaseClient: NSObject {
     static let baseURL = "https://kickswap.firebaseio.com"
     
     weak var loginDelegate: FirebaseLoginDelegate?
-    weak var userDelegate: FirebaseUserDelegate?
     
     private class myURIs{
         //auth related calls
@@ -49,13 +46,15 @@ class FirebaseClient: NSObject {
         - Register user into Firebase DB with FacebookID
     */
     
-    func loginWithFacebook(fbAccessToken:String) {
+    func loginWithFacebook(fbAccessToken:String, completion:UserErrorCompletionBlock) {
         //Authenticate with facebookID
         FirebaseClient.sharedClient.getRef().authWithOAuthProvider("facebook", token: fbAccessToken,
             withCompletionBlock: { error, authData in
                 if error != nil {
                     print("Login failed. \(error)")
                     self.loginDelegate?.loginFailure(error)
+                    completion(nil, error)
+                    return
                 } else {
                     //set global currentUser
                     let newUser = User(data: authData)
@@ -63,7 +62,8 @@ class FirebaseClient: NSObject {
                     print("User logging in thru FB: \(User.currentUser)")
                     //set value back into Firebase
                     // FirebaseClient.saveUser(User.currentUser!)
-                    self.loginDelegate?.loginCompletion()
+                    completion(newUser, nil)
+                    //self.loginDelegate?.loginCompletion()
                 }
         })
     }

@@ -50,16 +50,22 @@ class KSLoginViewController: UIViewController {
             } else if (!result.declinedPermissions.isEmpty) {
                 print("User didn't grant permissions.")
             } else {
-                
                 //If User is authenticated and ready to go
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-                FirebaseClient.sharedClient.loginWithFacebook(accessToken)
-                //bug occurs where segue cannot be performed, uncomment when bug is fixed
-                
-                let usersVC = (self.storyboard?.instantiateViewControllerWithIdentifier("KSUsersViewController"))! as UIViewController
-                let usersNavController = UINavigationController(rootViewController: usersVC)
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.window?.rootViewController = usersNavController
+                FirebaseClient.sharedClient.loginWithFacebook(accessToken){(user, error) -> Void in
+                if(error != nil){
+                   //Something went wrong
+                    print("Error: Couldn't Login")
+                } else {
+                    self.performSegueWithIdentifier("toUsers", sender: nil) // goto UserViewController
+                }
+            }
+//                //bug occurs where segue cannot be performed, uncomment when bug is fixed
+//                
+//                let usersVC = (self.storyboard?.instantiateViewControllerWithIdentifier("KSUsersViewController"))! as UIViewController
+//                let usersNavController = UINavigationController(rootViewController: usersVC)
+//                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//                appDelegate.window?.rootViewController = usersNavController
             }
             
         })

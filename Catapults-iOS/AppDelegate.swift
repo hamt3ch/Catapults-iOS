@@ -19,8 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNObjectEventListener {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
 
         if User.currentUser != nil && FBSDKAccessToken.currentAccessToken() != nil {
             print("Current user detected: \(User.currentUser!.displayName)")
@@ -31,9 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNObjectEventListener {
             //the arrow of modal segue does this, so there is 100% parity here and in the actual storyboard
             window?.rootViewController = vc
             
-        } else {
-            print("USER in else of app delegate: \(User.currentUser)")
-            userDidLogout()
         }
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions) //Facebook LaunchOptions

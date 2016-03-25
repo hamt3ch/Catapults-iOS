@@ -107,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZm-EP-v46" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2164" y="823"/>
+            <point key="canvasLocation" x="2154" y="845"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="d25-Ez-srt">
@@ -145,7 +145,7 @@
                     </view>
                     <connections>
                         <outlet property="fbLoginButton" destination="2Be-Nt-044" id="i1e-tu-woa"/>
-                        <segue destination="qfo-QB-jYB" kind="show" identifier="LoginViewSegue" id="UU0-Tf-bmf"/>
+                        <segue destination="qfo-QB-jYB" kind="showDetail" identifier="toUsers" id="UU0-Tf-bmf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDE-Fi-C8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -157,6 +157,7 @@
             <objects>
                 <navigationController storyboardIdentifier="UserViewNavController" automaticallyAdjustsScrollViewInsets="NO" id="qfo-QB-jYB" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="P0C-PZ-TIz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0K7-Kx-pyk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -168,7 +169,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U0N-Ic-cJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1595" y="755"/>
+            <point key="canvasLocation" x="1565" y="791"/>
         </scene>
     </scenes>
 </document>
