@@ -7,5 +7,7 @@ target 'Catapults-iOS' do
   pod "PubNub"
   pod "Firebase"
   pod "SlackTextViewController"
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
 end
 

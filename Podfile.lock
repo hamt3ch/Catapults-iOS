@@ -1,4 +1,10 @@
 PODS:
+  - Bolts (1.6.0):
+    - Bolts/AppLinks (= 1.6.0)
+    - Bolts/Tasks (= 1.6.0)
+  - Bolts/AppLinks (1.6.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.6.0)
   - CocoaLumberjack (2.2.0):
     - CocoaLumberjack/Default (= 2.2.0)
     - CocoaLumberjack/Extensions (= 2.2.0)
@@ -7,6 +13,10 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.2.0):
     - CocoaLumberjack/Default
+  - FBSDKCoreKit (4.10.1):
+    - Bolts (~> 1.5)
+  - FBSDKLoginKit (4.10.1):
+    - FBSDKCoreKit
   - Firebase (2.5.1)
   - PubNub (4.3.0):
     - CocoaLumberjack (= 2.2.0)
@@ -16,16 +26,19 @@ PODS:
   - SlackTextViewController (1.9.1)
 
 DEPENDENCIES:
+  - FBSDKCoreKit
+  - FBSDKLoginKit
   - Firebase
   - PubNub
   - SlackTextViewController
 
 SPEC CHECKSUMS:
+  Bolts: f52a250053bb517ca874523c3913776359ab3def
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
+  FBSDKCoreKit: d2aaed5e9ab7d8d6301c533376a1fbff1cf3deb5
+  FBSDKLoginKit: 699ff169080e3072de4b9b0faca90bf23dc36deb
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
   PubNub: a05f2a2c6cc1f637a0c473f236c4671c0b8c09b1
   SlackTextViewController: 6b0d1030c53937226fc5358f217af2a34fc211cf
 
-PODFILE CHECKSUM: 03020bc3a425d8a4317dcd5593d38a233ef69d58
-
-COCOAPODS: 1.0.0.beta.2
+COCOAPODS: 0.39.0

@@ -9,14 +9,49 @@
 import UIKit
 import CoreData
 import PubNub
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, PNObjectEventListener {
 
     var window: UIWindow?
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
+
+        if User.currentUser != nil && FBSDKAccessToken.currentAccessToken() != nil {
+            print("Current user detected: \(User.currentUser!.displayName)")
+            print("USER: \(User.currentUser)")
+            //create a new instance of this controller if user is detected
+            let vc = storyboard.instantiateViewControllerWithIdentifier("UserViewNavController") as! UINavigationController
+            
+            //the arrow of modal segue does this, so there is 100% parity here and in the actual storyboard
+            window?.rootViewController = vc
+            
+        } else {
+            print("USER in else of app delegate: \(User.currentUser)")
+            userDidLogout()
+        }
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions) //Facebook LaunchOptions
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(
+            application,
+            openURL: url,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
+    }
+    
+    func userDidLogout() {
+        print("USER in userDidLogout: \(User.currentUser)")
+        let vc = storyboard.instantiateInitialViewController()
+        window?.rootViewController = vc
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -35,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNObjectEventListener {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {

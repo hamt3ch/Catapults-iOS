@@ -84,13 +84,19 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Catapults-iOS/Bolts.framework"
   install_framework "Pods-Catapults-iOS/CocoaLumberjack.framework"
+  install_framework "Pods-Catapults-iOS/FBSDKCoreKit.framework"
+  install_framework "Pods-Catapults-iOS/FBSDKLoginKit.framework"
   install_framework "Pods-Catapults-iOS/Firebase.framework"
   install_framework "Pods-Catapults-iOS/PubNub.framework"
   install_framework "Pods-Catapults-iOS/SlackTextViewController.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Catapults-iOS/Bolts.framework"
   install_framework "Pods-Catapults-iOS/CocoaLumberjack.framework"
+  install_framework "Pods-Catapults-iOS/FBSDKCoreKit.framework"
+  install_framework "Pods-Catapults-iOS/FBSDKLoginKit.framework"
   install_framework "Pods-Catapults-iOS/Firebase.framework"
   install_framework "Pods-Catapults-iOS/PubNub.framework"
   install_framework "Pods-Catapults-iOS/SlackTextViewController.framework"

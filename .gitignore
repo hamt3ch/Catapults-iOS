@@ -43,7 +43,11 @@ playground.xcworkspace
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
+<<<<<<< HEAD
 # Pods/
+=======
+Pods/
+>>>>>>> 3ecec32323b7f900f74bfe013f2f1f6f3cbfa768
 
 # Carthage
 #
